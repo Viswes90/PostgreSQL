@@ -1,5 +1,5 @@
-pgbackrest – Session – 01
-
+pgbackrest
+==========
 	It supports Full backups, Incremental backups and Differential backups.
 	We need to configure the SSH passwordless authentication between source and backup servers.
 	PostgreSQL version is different and pg_backrest version is different.
