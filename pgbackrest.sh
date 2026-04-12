@@ -158,25 +158,6 @@ Backup Server:-
 [dba@localhost backup]$ pgbackrest --stanza=postgresdb_backup --log-level-console=detail backup --type=full
 
 [dba@localhost 16396]$ pgbackrest info --stanza=data2_backup
-stanza: data2_backup
-    status: ok
-    cipher: none
-
-    db (current)
-        wal archive min/max (17): 000000010000000200000013/000000010000000200000015
-
-        full backup: 20250429-080210F
-            timestamp start/stop: 2025-04-29 08:02:10+05:30 / 2025-04-29 08:02:58+05:30
-            wal start/stop: 000000010000000200000013 / 000000010000000200000013
-            database size: 468.0MB, database backup size: 468.0MB
-            repo1: backup set size: 47MB, backup size: 47MB
-
-        full backup: 20250429-080627F
-            timestamp start/stop: 2025-04-29 08:06:27+05:30 / 2025-04-29 08:06:58+05:30
-            wal start/stop: 000000010000000200000015 / 000000010000000200000015
-            database size: 468.0MB, database backup size: 468.0MB
-            repo1: backup set size: 47MB, backup size: 47MB
-[dba@localhost 16396]$
 
 Source Server:-
 [dba@localhost data2]$ psql -p 5433 -U dba postgres
@@ -200,28 +181,6 @@ total 0
 drwxr-x---. 6 dba dba 174 Apr 29 08:12 data2_backup
 [dba@localhost backup]$ cd data2_backup/
 [dba@localhost data2_backup]$ ls -lrth
-total 8.0K
-drwxr-x---. 3 dba dba   72 Apr 29 08:03 20250429-080210F
-drwxr-x---. 3 dba dba   18 Apr 29 08:03 backup.history
-drwxr-x---. 3 dba dba   72 Apr 29 08:07 20250429-080627F
-drwxr-x---. 3 dba dba   72 Apr 29 08:12 20250429-080627F_20250429-081233I
-lrwxrwxrwx. 1 dba dba   33 Apr 29 08:12 latest -> 20250429-080627F_20250429-081233I
--rw-r-----. 1 dba dba 2.5K Apr 29 08:12 backup.info
--rw-r-----. 1 dba dba 2.5K Apr 29 08:12 backup.info.copy
-[dba@localhost data2_backup]$ cd 20250429-080627F_20250429-081233I
-[dba@localhost 20250429-080627F_20250429-081233I]$ ls -lrth
-total 760K
-drwxr-x---. 7 dba dba   95 Apr 29 08:12 pg_data
--rw-r-----. 1 dba dba 379K Apr 29 08:12 backup.manifest.copy
--rw-r-----. 1 dba dba 379K Apr 29 08:12 backup.manifest
-[dba@localhost 20250429-080627F_20250429-081233I]$ cd pg_data/
-[dba@localhost pg_data]$ ls -lrth
-[dba@localhost pg_data]$ cd base/
-[dba@localhost base]$ ls -lrth
-total 4.0K
-drwxr-x---. 2 dba dba 4.0K Apr 29 08:12 16396
-[dba@localhost base]$ cd 16396/
-[dba@localhost 16396]$ ls -lrth
 
 [dba@localhost 16396]$ pgbackrest --help
 pgBackRest 2.55.0 - General help
@@ -311,36 +270,6 @@ check the oid of the table and cross verify the same in the backup server in the
 Backup Server:-
 [dba@localhost 16396]$ cd /dba_instance/dbrepo/backup/data2_backup/
 [dba@localhost data2_backup]$ ls -lrth
-total 16K
-drwxr-x---. 3 dba dba   72 Apr 29 08:03 20250429-080210F
-drwxr-x---. 3 dba dba   18 Apr 29 08:03 backup.history
-drwxr-x---. 3 dba dba   72 Apr 29 08:07 20250429-080627F
-drwxr-x---. 3 dba dba   72 Apr 29 08:12 20250429-080627F_20250429-081233I
-drwxr-x---. 3 dba dba   72 Apr 29 08:20 20250429-080627F_20250429-081959D
-drwxr-x---. 3 dba dba   72 Apr 29 08:22 20250429-080627F_20250429-082220I
-drwxr-x---. 3 dba dba   72 Apr 29 08:23 20250429-080627F_20250429-082257I
-lrwxrwxrwx. 1 dba dba   33 Apr 29 08:23 latest -> 20250429-080627F_20250429-082257I
--rw-r-----. 1 dba dba 4.8K Apr 29 08:23 backup.info
--rw-r-----. 1 dba dba 4.8K Apr 29 08:23 backup.info.copy
-[dba@localhost data2_backup]$ cd 20250429-080627F_20250429-082257I
-[dba@localhost 20250429-080627F_20250429-082257I]$ cd pg_data/
-[dba@localhost pg_data]$ ls -lrth
-total 4.0K
-drwxr-x---. 2 dba dba  35 Apr 29 08:23 log
-drwxr-x---. 2 dba dba  21 Apr 29 08:23 pg_xact
-drwxr-x---. 2 dba dba  27 Apr 29 08:23 global
-drwxr-x---. 3 dba dba  23 Apr 29 08:23 pg_wal
-drwxr-x---. 3 dba dba  19 Apr 29 08:23 base
--rw-r-----. 1 dba dba 201 Apr 29 08:23 backup_label.gz
-[dba@localhost pg_data]$ cd base/
-[dba@localhost base]$ ls -lrth
-total 0
-drwxr-x---. 2 dba dba 22 Apr 29 08:23 16396
-[dba@localhost base]$ cd 16396/
-[dba@localhost 16396]$ ls -lrth
-total 1.3M
--rw-r-----. 1 dba dba 1.3M Apr 29 08:23 16520.gz
-[dba@localhost 16396]$ 
 
 Restoration of entire cluster using pgbackrest
 
