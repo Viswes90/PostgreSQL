@@ -116,13 +116,10 @@ postgres=# show archive_command;
 postgres=# \q
 
 Backup Server:-
-[dba@localhost ~]$ cd /dba_instance/dbrepo/
-[dba@localhost dbrepo]$ ls -lrth
-total 0
-[dba@localhost dbrepo]$ pgbackrest --stanza=data2_backup stanza-create
 [root@localhost ~]# chown postgres:postgres /dba_instance/dbrepo/ -R
 [root@localhost ~]# chown postgres:postgres /var/log/pgbackrest/
 [root@localhost ~]# su - postgres
+[dba@localhost ~]$ cd /dba_instance/dbrepo/
 [dba@localhost ~]$ pgbackrest --stanza=data2_backup stanza-create
 2025-04-29 07:53:26.667 P00   WARN: unable to open log file '/var/log/pgbackrest/data2_backup-stanza-create.log': Permission denied
                                     NOTE: process will continue without log file.
@@ -158,43 +155,8 @@ server signaled
 Backup Server:-
 [dba@localhost backup]$ pgbackrest --stanza=data2_backup backup --type=full
 
-[dba@localhost backup]$ pgbackrest --stanza=data2_backup --log-level-console=detail backup --type=full
+[dba@localhost backup]$ pgbackrest --stanza=postgresdb_backup --log-level-console=detail backup --type=full
 
-[dba@localhost backup]$ ls -lrth
-total 0
-drwxr-x---. 5 dba dba 133 Apr 29 08:07 data2_backup
-[dba@localhost backup]$ cd data2_backup/
-[dba@localhost data2_backup]$ ls -lrth
-total 8.0K
-drwxr-x---. 3 dba dba   72 Apr 29 08:03 20250429-080210F
-drwxr-x---. 3 dba dba   18 Apr 29 08:03 backup.history
-drwxr-x---. 3 dba dba   72 Apr 29 08:07 20250429-080627F
-lrwxrwxrwx. 1 dba dba   16 Apr 29 08:07 latest -> 20250429-080627F
--rw-r-----. 1 dba dba 1.7K Apr 29 08:07 backup.info.copy
--rw-r-----. 1 dba dba 1.7K Apr 29 08:07 backup.info
-[dba@localhost data2_backup]$ cd 20250429-080627F
-[dba@localhost 20250429-080627F]$ ls -lrth
-total 652K
-drwxr-x---. 20 dba dba 4.0K Apr 29 08:06 pg_data
--rw-r-----.  1 dba dba 321K Apr 29 08:07 backup.manifest.copy
--rw-r-----.  1 dba dba 321K Apr 29 08:07 backup.manifest
-[dba@localhost 20250429-080627F]$ cd pg_data/
-[dba@localhost pg_data]$ ls -lrth
-[dba@localhost pg_data]$ cd base/
-[dba@localhost base]$ ls -lrth
-[dba@localhost base]$ cd 16396/
-[dba@localhost 16396]$ ls -lrth
-total 44M
--rw-r-----. 1 dba dba  31K Apr 29 08:06 2675.gz
--rw-r-----. 1 dba dba  49K Apr 29 08:06 2619.gz
--rw-r-----. 1 dba dba  31K Apr 29 08:06 2658.gz
--rw-r-----. 1 dba dba  323 Apr 29 08:06 16420_fsm.gz
--rw-r-----. 1 dba dba   86 Apr 29 08:06 4144.gz
--rw-r-----. 1 dba dba   87 Apr 29 08:06 3997.gz
--rw-r-----. 1 dba dba   66 Apr 29 08:06 3764_vm.gz
--rw-r-----. 1 dba dba   84 Apr 29 08:06 pg_filenode.map.gz
--rw-r-----. 1 dba dba   23 Apr 29 08:06 PG_VERSION.gz
-[dba@localhost 16396]$ 
 [dba@localhost 16396]$ pgbackrest info --stanza=data2_backup
 stanza: data2_backup
     status: ok
@@ -339,52 +301,7 @@ Backup Server:-
 [dba@localhost 16396]$ pgbackrest --stanza=data2_backup backup --type=incr
 
 [dba@localhost 16396]$ pgbackrest info --stanza=data2_backup
-stanza: data2_backup
-    status: ok
-    cipher: none
 
-    db (current)
-        wal archive min/max (17): 000000010000000200000013/00000001000000020000001D
-
-        full backup: 20250429-080210F
-            timestamp start/stop: 2025-04-29 08:02:10+05:30 / 2025-04-29 08:02:58+05:30
-            wal start/stop: 000000010000000200000013 / 000000010000000200000013
-            database size: 468.0MB, database backup size: 468.0MB
-            repo1: backup set size: 47MB, backup size: 47MB
-
-        full backup: 20250429-080627F
-            timestamp start/stop: 2025-04-29 08:06:27+05:30 / 2025-04-29 08:06:58+05:30
-            wal start/stop: 000000010000000200000015 / 000000010000000200000015
-            database size: 468.0MB, database backup size: 468.0MB
-            repo1: backup set size: 47MB, backup size: 47MB
-
-        incr backup: 20250429-080627F_20250429-081233I
-            timestamp start/stop: 2025-04-29 08:12:33+05:30 / 2025-04-29 08:12:45+05:30
-            wal start/stop: 000000010000000200000017 / 000000010000000200000017
-            database size: 472.2MB, database backup size: 5.6MB
-            repo1: backup set size: 47.4MB, backup size: 592.4KB
-            backup reference total: 1 full
-
-        diff backup: 20250429-080627F_20250429-081959D
-            timestamp start/stop: 2025-04-29 08:19:59+05:30 / 2025-04-29 08:20:11+05:30
-            wal start/stop: 000000010000000200000019 / 000000010000000200000019
-            database size: 472.2MB, database backup size: 5.6MB
-            repo1: backup set size: 47.4MB, backup size: 592.7KB
-            backup reference total: 1 full
-
-        incr backup: 20250429-080627F_20250429-082220I
-            timestamp start/stop: 2025-04-29 08:22:20+05:30 / 2025-04-29 08:22:28+05:30
-            wal start/stop: 00000001000000020000001B / 00000001000000020000001B
-            database size: 476.5MB, database backup size: 8.5MB
-            repo1: backup set size: 47.8MB, backup size: 846.9KB
-            backup reference total: 1 full, 1 diff
-
-        incr backup: 20250429-080627F_20250429-082257I
-            timestamp start/stop: 2025-04-29 08:22:57+05:30 / 2025-04-29 08:23:02+05:30
-            wal start/stop: 00000001000000020000001D / 00000001000000020000001D
-            database size: 480.7MB, database backup size: 12.7MB
-            repo1: backup set size: 48.3MB, backup size: 1.2MB
-            backup reference total: 1 full, 1 diff, 1 incr
 [dba@localhost 16396]$
 
 Source Server:-
@@ -430,16 +347,6 @@ Restoration of entire cluster using pgbackrest
 Backup Server:-
 [dba@localhost 16396]$ pgbackrest info --stanza=data2_backup
 [dba@localhost 16396]$ 
-[dba@localhost 16396]$ mkdir /dba_instance/restore_db
-[dba@localhost 16396]$ pgbackrest --stanza=data2_backup --db-path=/dba_instance/restore_db --set=20250429-080627F_20250429-082257I restore
-2025-04-30 07:14:25.473 P00   INFO: restore command begin 2.55.0: --exec-id=10774-61572bfb --log-level-console=info --log-level-file=debug --pg1-host=192.168.112.216 --pg1-path=/dba_instance/restore_db --process-max=2 --repo1-path=/dba_instance/dbrepo --set=20250429-080627F_20250429-082257I --stanza=data2_backup
-2025-04-30 07:14:25.479 P00  ERROR: [072]: restore command must be run on the PostgreSQL host
-2025-04-30 07:14:25.479 P00   INFO: restore command end: aborted with exception [072]
-[dba@localhost 16396]$ exit
-logout
-[root@localhost ~]# chown dba:dba /var/spool/pgbackrest/archive/data2_backup
-chown: cannot access '/var/spool/pgbackrest/archive/data2_backup': No such file or directory
-[root@localhost ~]# su - dba
 
 Source Server:-
 [dba@localhost data2]$ 
@@ -582,10 +489,12 @@ db1=# select count(*) from incr where name='ojas';
 db1=# \l
 db1=# \q
 
-	Delta restore in pgBackRest does not restore the entire cluster. It restores only the files that are missing or different by comparing checksums with the backup, making the restore process faster and more efficient.
+Delta restore in pgBackRest does not restore the entire cluster. 
+It restores only the files that are missing or different by comparing checksums with the backup, 
+making the restore process faster and more efficient.
 
 Restore single database using pgbackrest:-
-
+==========================================
 Source Server:-
 [dba@localhost restore_db]$ psql -p 5433 -U dba db1
 psql (17.4)
