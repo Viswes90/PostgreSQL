@@ -272,7 +272,7 @@ Backup Server:-
 [dba@localhost data2_backup]$ ls -lrth
 
 Restoration of entire cluster using pgbackrest
-
+==============================================
 Backup Server:-
 [dba@localhost 16396]$ pgbackrest info --stanza=data2_backup
 [dba@localhost 16396]$ 
@@ -280,11 +280,10 @@ Backup Server:-
 Source Server:-
 [dba@localhost data2]$ 
 [dba@localhost data2]$ mkdir /dba_instance/restore_db
-[dba@localhost data2]$ pgbackrest --stanza=data2_backup --db-path=/dba_instance/restore_db --set=20250429-080627F_20250429-082257I restore
 [root@localhost pgbackrest]# chown postgres:postgres /var/spool/pgbackrest/ -R
 [root@localhost pgbackrest]# chown postgres:postgres /var/log/pgbackrest/ -R
 [root@localhost pgbackrest]# su - postgres
-[dba@localhost ~]$ pgbackrest --stanza=data2_backup --db-path=/dba_instance/restore_db --set=20250429-080627F_20250429-082257I restore
+[dba@localhost data2]$ pgbackrest --stanza=data2_backup --db-path=/dba_instance/restore_db --set=20250429-080627F_20250429-082257I restore
 [dba@localhost ~]$ cd /var/spool/pgbackrest/
 [dba@localhost pgbackrest]$ ls
 
@@ -297,11 +296,6 @@ Source Server:-
 [dba@localhost pgbackrest]$ psql -p 5433 -U dba postgres
 postgres=# \c db1
 You are now connected to database "db1" as user "dba".
-db1=# select count(*) from incr;
- count  
---------
- 300000
-(1 row)
 db1=# insert into incr values(generate_series(1,100000),'manu');
 INSERT 0 100000
 db1=# select count(*) from incr;
@@ -335,9 +329,6 @@ db1=# select count(*) from incr;
 --------
  600000
 (1 row)
-
-db1=# insert into incr values(generate_series(1,100000),'sreeni');
-INSERT 0 100000
 
 Backup Server:-
 [dba@localhost ~]$ pgbackrest --stanza=data2_backup backup --type=diff
