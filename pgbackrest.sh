@@ -370,26 +370,6 @@ db1=# insert into incr values(generate_series(1,100000),'ojas');
 INSERT 0 100000
 db1=# \q
 
-[dba@localhost restore_db]$ pg_ctl -D /dba_instance/restore_db/ stop
-waiting for server to shut down.......... done
-server stopped
-[dba@localhost restore_db]$ pgbackrest --stanza=data2_backup --db-path=/dba_instance/restore_db --delta restore
-[dba@localhost restore_db]$ vi postgresql.conf 
-Update the port number
-[dba@localhost restore_db]$ pg_ctl -D /dba_instance/restore_db/ start
-[dba@localhost restore_db]$ psql -p 5435 -U dba db1
-psql (17.4)
-Type "help" for help.
-
-db1=# select count(*) from incr where name='ojas';
- count 
--------
-     0
-(1 row)
-
-db1=# \q
-
-
 Backup Server:-
 [dba@localhost ~]$ pgbackrest --stanza=data2_backup backup --type=incr
 
