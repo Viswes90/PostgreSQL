@@ -344,12 +344,6 @@ Backup Server:-
 	Copy the file name
 
 Source Server:-
-[dba@localhost ~]$ cd /dba_instance/restore_db/
-[dba@localhost restore_db]$ pgbackrest --stanza=data2_backup --db-path=/dba_instance/restore_db --set=20250430-072743F_20250430-073314I restore
-[dba@localhost restore_db]$ ls -lrth
-[dba@localhost restore_db]$ vi postgresql.conf 
-Update the port number
-[dba@localhost restore_db]$ pg_ctl -D /dba_instance/restore_db/ start
 [dba@localhost restore_db]$ psql -p 5435 -U dba db1
 db1=# select count(*) from incr;
 db1=# select count(*) from incr where name='john';
@@ -397,36 +391,11 @@ Restore single database using pgbackrest:-
 ==========================================
 Source Server:-
 [dba@localhost restore_db]$ psql -p 5433 -U dba db1
-psql (17.4)
-Type "help" for help.
-
-db1=# create table delta(id integer,name varchar(20));
-CREATE TABLE
-db1=# insert into delta values(generate_series(1,1000),'chanak');
-INSERT 0 1000
-db1=# \q
-[dba@localhost restore_db]$ psql -p 5435 -U dba db1
-psql (17.4)
-Type "help" for help.
-
-db1=# \l
-db1=# \c db5
-You are now connected to database "db5" as user "dba".
-db5=# \c db1
-You are now connected to database "db1" as user "dba".
 db1=# create table before_change(id integer,name varchar(20));
 CREATE TABLE
 db1=# insert into before_change values(generate_series(1,1000),'chanak');
 INSERT 0 1000
 db1=# \dt
-db1=# show port;
- port 
-------
- 5435
-(1 row)
-
-db1=# \q
-
 
 Backup Server:-
 [dba@localhost ~]$ pgbackrest --stanza=data2_backup backup --type=incr
@@ -448,7 +417,7 @@ db1=#
 db1=# \q
 
 PITR using pgbackrest:-
-
+=======================
 Source Server:-
 [dba@localhost restore_db]$ psql -p 5433 -U dba db1
 db1=# create table t_Test (slno integer, ts timestamp);
