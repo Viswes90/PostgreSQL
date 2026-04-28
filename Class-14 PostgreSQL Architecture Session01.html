@@ -1,0 +1,1511 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List
+href="Class-14%20PostgreSQL%20Architecture%20Session01_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="Class-14%20PostgreSQL%20Architecture%20Session01_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>bujji</o:Author>
+  <o:LastAuthor>bujji</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>294</o:TotalTime>
+  <o:Created>2026-04-28T11:26:00Z</o:Created>
+  <o:LastSaved>2026-04-28T11:26:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>828</o:Words>
+  <o:Characters>4721</o:Characters>
+  <o:Lines>39</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>5538</o:CharactersWithSpaces>
+  <o:Version>12.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData
+href="Class-14%20PostgreSQL%20Architecture%20Session01_files/themedata.thmx">
+<link rel=colorSchemeMapping
+href="Class-14%20PostgreSQL%20Architecture%20Session01_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:DoNotOptimizeForBrowser/>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-536869121 64767 1 0 415 0;}
+@font-face
+	{font-family:"Segoe UI Emoji";
+	panose-1:2 11 5 2 4 2 4 2 2 3;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:Arial;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Arial","sans-serif";
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	mso-bidi-font-weight:normal;}
+h3
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:14.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	mso-bidi-font-weight:normal;}
+h4
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:2.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	mso-bidi-font-weight:normal;}
+h5
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:11.0pt;
+	margin-right:0cm;
+	margin-bottom:2.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:5;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	mso-bidi-font-weight:normal;}
+h6
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:2.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:6;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	mso-bidi-font-weight:normal;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-priority:99;
+	mso-style-link:"Header Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 225.65pt right 451.3pt;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:Arial;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-priority:99;
+	mso-style-link:"Footer Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 225.65pt right 451.3pt;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:Arial;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	font-size:36.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:Arial;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-priority:11;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:4.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	font-size:24.0pt;
+	font-family:"Georgia","serif";
+	mso-fareast-font-family:Georgia;
+	mso-bidi-font-family:Georgia;
+	color:#666666;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:Arial;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Header;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Footer;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	mso-ascii-font-family:Arial;
+	mso-fareast-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	line-height:115%;}
+ /* Page Definitions */
+ @page
+	{mso-footnote-separator:url("Class-14%20PostgreSQL%20Architecture%20Session01_files/header.htm") fs;
+	mso-footnote-continuation-separator:url("Class-14%20PostgreSQL%20Architecture%20Session01_files/header.htm") fcs;
+	mso-endnote-separator:url("Class-14%20PostgreSQL%20Architecture%20Session01_files/header.htm") es;
+	mso-endnote-continuation-separator:url("Class-14%20PostgreSQL%20Architecture%20Session01_files/header.htm") ecs;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;
+	mso-header-margin:0cm;
+	mso-footer-margin:5.65pt;
+	mso-page-numbers:1;
+	mso-footer:url("Class-14%20PostgreSQL%20Architecture%20Session01_files/header.htm") f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1260993287;
+	mso-list-template-ids:1739376764;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:2036687464;
+	mso-list-template-ids:-335760170;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+table.TableNormal
+	{mso-style-name:TableNormal;
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-unhide:no;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 0cm 0cm 0cm;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	mso-ansi-language:EN-IN;
+	mso-fareast-language:EN-IN;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:normal;
+mso-pagination:none;border:none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;
+mso-border-shadow:yes'><b><u><span lang=EN-IN style='font-size:14.0pt;
+font-family:Consolas;color:black'>PostgreSQL Architecture<o:p></o:p></span></u></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:normal;
+mso-pagination:none;border:none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;
+mso-border-shadow:yes'><span style='font-family:Consolas;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1026" type="#_x0000_t75"
+ alt="A screenshot of a computer&#10;&#10;AI-generated content may be incorrect."
+ style='width:567.75pt;height:228.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Class-14%20PostgreSQL%20Architecture%20Session01_files/image001.png"
+  o:title="A screenshot of a computer&#10;&#10;AI-generated content may be incorrect"/>
+</v:shape><![endif]--><![if !vml]><img width=757 height=305
+src="Class-14%20PostgreSQL%20Architecture%20Session01_files/image002.gif"
+alt="A screenshot of a computer&#10;&#10;AI-generated content may be incorrect."
+v:shapes="Picture_x0020_1"><![endif]></span><span lang=EN-IN style='font-family:
+Consolas;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>dba@example~]$ps
+-ef|greppostgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3956<span style='mso-spacerun:yes'>   
+</span>2245<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 /usr/pgsql-17/bin/postgres -D
+/app01_dba/db_data<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3957<span style='mso-spacerun:yes'>   
+</span>3956<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 postgres: logger <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3958<span style='mso-spacerun:yes'>   
+</span>3956<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 postgres: checkpointer<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3959<span style='mso-spacerun:yes'>   
+</span>3956<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 postgres: background writer <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3961<span style='mso-spacerun:yes'>   
+</span>3956<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 postgres: walwriter<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3962<span style='mso-spacerun:yes'>   
+</span>3956<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 postgres: autovacuum launcher <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>3963<span style='mso-spacerun:yes'>   
+</span>3956<span style='mso-spacerun:yes'>  </span>007:09 ?<span
+style='mso-spacerun:yes'>        </span>00:00:00 postgres: logical replication
+launcher <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:black'>dba<span
+style='mso-spacerun:yes'>         </span>4055<span style='mso-spacerun:yes'>   
+</span>3775<span style='mso-spacerun:yes'>  </span>0 07:09 pts/0<span
+style='mso-spacerun:yes'>    </span>00:00:00 grep --color=auto postgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example~]$psql -p 5432
+-U dba postgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>psql (17.4)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Type &quot;help&quot; for
+help.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# create table
+arc(id integer,namevarchar(20));<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>CREATE TABLE<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# \d+ arc<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'>                                                 
+</span>Table &quot;public.arc&quot;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>Column |<span
+style='mso-spacerun:yes'>         </span>Type<span
+style='mso-spacerun:yes'>          </span>| Collation | Nullable | Default |
+Storage<span style='mso-spacerun:yes'>  </span>| Compression | Stats target |
+Description <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'>--------+-----------------------+-----------+----------+---------+----------+-------------+--------------+-------------<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>id<span style='mso-spacerun:yes'>     </span>|
+integer<span style='mso-spacerun:yes'>               </span>|<span
+style='mso-spacerun:yes'>           </span>|<span
+style='mso-spacerun:yes'>          </span>|<span
+style='mso-spacerun:yes'>         </span>| plain<span
+style='mso-spacerun:yes'>    </span>|<span
+style='mso-spacerun:yes'>             </span>|<span style='mso-spacerun:yes'> 
+</span><span style='mso-spacerun:yes'>            </span>| <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>name<span style='mso-spacerun:yes'>   </span>|
+character varying(20) |<span style='mso-spacerun:yes'>           </span>|<span
+style='mso-spacerun:yes'>          </span>|<span
+style='mso-spacerun:yes'>         </span>| extended |<span
+style='mso-spacerun:yes'>             </span>|<span
+style='mso-spacerun:yes'>              </span>| <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'>Access
+method: heap<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# select
+pg_relation_filepath('arc');<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>pg_relation_filepath<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>----------------------<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>base/5/32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>(1 row)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# \q<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example~]$ cd <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>.cache/<span
+style='mso-spacerun:yes'>     </span>db_data/<span style='mso-spacerun:yes'>   
+</span>db_wal/<span style='mso-spacerun:yes'>     </span>postgresql/ <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example~]$ cd
+db_data/base/5/<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$ ls -lrth
+32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba 0 Mar
+14 07:23 32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$ ls -lrth
+32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba 440K
+Mar 14 07:31 32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$psql -p 5432
+-U dba postgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>psql (17.4)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example~]$psql -p 5432
+-U dba postgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>psql (17.4)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Type &quot;help&quot; for
+help.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# \dt<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'>        </span>List of relations<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>Schema |<span style='mso-spacerun:yes'> 
+</span>Name<span style='mso-spacerun:yes'>  </span>| Type<span
+style='mso-spacerun:yes'>  </span>| Owner <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>--------+--------+-------+-------<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>public | arc<span style='mso-spacerun:yes'>   
+</span>| table | dba<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>public | orders | table | dba<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>public | tab1<span style='mso-spacerun:yes'>  
+</span>| table | dba<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>public | tb1<span style='mso-spacerun:yes'>   
+</span>| table | dba<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><span
+style='mso-spacerun:yes'> </span>public | test1<span style='mso-spacerun:yes'> 
+</span>| table | dba<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>(5 rows)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# begin;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>BEGIN<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=*# insert into arc
+values(generate_series(1,10000),'manu');<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>INSERT 0 10000<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=*# rollback;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>ROLLBACK<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# <o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$ cd ..<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@examplebase]$ cd ..<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@exampledb_data]$ vi
+postgresql.conf<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@exampledb_data]$ cd
+base<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@examplebase]$ cd 5<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$ ls -lrth
+32789*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba<span
+style='mso-spacerun:yes'>  </span>24K Mar 14 07:31 32789_fsm<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba 440K
+Mar 14 07:34 32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$psql -p 5432
+-U dba postgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>psql (17.4)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Type &quot;help&quot; for
+help.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# select * from
+pg_class where relname='arc';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# \q<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$ ls -lrth
+32789*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba<span
+style='mso-spacerun:yes'>   </span>0 Mar 14 07:58 32789_vm<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba 16K
+Mar 14 07:58 32789_fsm<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>-rw-------. 1 dba dba<span
+style='mso-spacerun:yes'>   </span>0 Mar 14 07:58 32789<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[dba@example5]$psql -p 5432
+-U dba postgres<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>psql (17.4)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Type &quot;help&quot; for
+help.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# select * from
+pg_stat_user_tables where relname='arc';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# \x<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Expanded display is on.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# select * from
+pg_stat_user_tables where relname='arc';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# vacuum arc;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>VACUUM<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# select * from
+pg_stat_user_tables where relname='arc';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>postgres=# \q<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:Consolas;color:black'>Basic structure of a table
+on disk<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>If you have a table called
+students, inside the database’s folder (like base/16384/), you’ll see something
+like this:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>16384/12345<span
+style='mso-spacerun:yes'>       </span>&#8592; main data file (actual rows)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>16384/12345_fsm<span
+style='mso-spacerun:yes'>   </span>&#8592; free space map<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>16384/12345_vm <span
+style='mso-spacerun:yes'>   </span>&#8592; visibility map<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#129513;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> 1. fsm — Free Space Map<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:Consolas;color:black'>Purpose: </span></b><span
+lang=EN-IN style='font-family:Consolas;color:black'>Tracks how much <b>free
+space</b> is available in each page (8KB block) of the table.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#128214;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> Why it exists:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>When PostgreSQL inserts a
+new row, it needs to know <i>where there’s room</i>.<br>
+Instead of scanning the whole table file, it looks at the <b>fsm</b> to quickly
+find pages that have enough space.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:Consolas;color:black'>Example:</span></b><span
+lang=EN-IN style='font-family:Consolas;color:black'>Let’s say your table’s data
+file (12345) has 4 pages:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 1 &#8594; 2000 bytes
+free<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 2 &#8594; 1000 bytes
+free<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 3 &#8594; 0 bytes
+free<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 4 &#8594; 4000 bytes
+free<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>The FSM will store a small
+summary:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 1: 25% free]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 2: 12% free]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 3: 0% free]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 4: 50% free]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>So when PostgreSQL needs to
+insert a row of 1500 bytes,<br>
+it checks FSM &#8594; finds Page 4 &#8594; inserts row there directly.<br>
+No need to scan every page!<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#128230;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> Key point:<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='color:black;line-height:normal;mso-pagination:none;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;border:none;mso-padding-alt:
+     31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span lang=EN-IN
+     style='font-family:Consolas'>FSM = a <i>map of empty spaces</i> in data
+     pages.<o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;line-height:normal;mso-pagination:none;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;border:none;mso-padding-alt:
+     31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span lang=EN-IN
+     style='font-family:Consolas'>Used by <b>INSERT</b> and <b>UPDATE</b> to
+     reuse space efficiently.<o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;line-height:normal;mso-pagination:none;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;border:none;mso-padding-alt:
+     31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span lang=EN-IN
+     style='font-family:Consolas'>Helps reduce table bloat.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#129694;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> 2. vm — Visibility Map<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>Purpose:</span></b><span lang=EN-IN
+style='font-family:Consolas;color:black'>Tracks which pages contain only <b>visible
+(fully committed)</b> tuples.<br>
+If all tuples on a page are visible to everyone, PostgreSQL marks it in the VM.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#128214;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> Why it exists:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>The <b>visibility map</b>
+helps PostgreSQL skip pages during VACUUM and ANALYZE.<br>
+If a page is fully visible (no dead rows), there’s no need to scan it again.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>Example:</span></b><span lang=EN-IN
+style='font-family:Consolas;color:black'>Imagine this:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 1 &#8594; All tuples
+committed &#8594; visible<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 2 &#8594; Has some
+deleted rows &#8594; not visible<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>Page 3 &#8594; All tuples
+committed &#8594; visible<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>The VM will mark:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 1: visible]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 2: not visible]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>[Page 3: visible]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'>When VACUUM runs, it will <b>skip
+Page 1 and 3</b>, saving tons of time.<br>
+It only scans pages that might need cleanup.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#128230;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> Key point:<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='color:black;line-height:normal;mso-pagination:none;
+     mso-list:l1 level1 lfo2;tab-stops:list 36.0pt;border:none;mso-padding-alt:
+     31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span lang=EN-IN
+     style='font-family:Consolas'>VM = <i>map of which pages are safe to skip
+     during vacuum</i>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;line-height:normal;mso-pagination:none;
+     mso-list:l1 level1 lfo2;tab-stops:list 36.0pt;border:none;mso-padding-alt:
+     31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span lang=EN-IN
+     style='font-family:Consolas'>Used by <b>VACUUM</b> and <b>index-only scans</b>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;line-height:normal;mso-pagination:none;
+     mso-list:l1 level1 lfo2;tab-stops:list 36.0pt;border:none;mso-padding-alt:
+     31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span lang=EN-IN
+     style='font-family:Consolas'>Greatly improves performance for large
+     tables.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+lang=EN-IN style='font-family:"Segoe UI Emoji","sans-serif";mso-bidi-font-family:
+"Segoe UI Emoji";color:black'>&#9889;</span></b><b><span lang=EN-IN
+style='font-family:Consolas;color:black'> Quick summary<o:p></o:p></span></b></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184'>
+ <thead>
+  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+   <td style='padding:.75pt .75pt .75pt .75pt'>
+   <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:
+   none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+   lang=EN-IN style='font-family:Consolas;color:black'>File<o:p></o:p></span></b></p>
+   </td>
+   <td style='padding:.75pt .75pt .75pt .75pt'>
+   <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:
+   none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+   lang=EN-IN style='font-family:Consolas;color:black'>Name<o:p></o:p></span></b></p>
+   </td>
+   <td style='padding:.75pt .75pt .75pt .75pt'>
+   <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:
+   none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+   lang=EN-IN style='font-family:Consolas;color:black'>Main purpose<o:p></o:p></span></b></p>
+   </td>
+   <td style='padding:.75pt .75pt .75pt .75pt'>
+   <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:
+   none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><b><span
+   lang=EN-IN style='font-family:Consolas;color:black'>Used by<o:p></o:p></span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='mso-yfti-irow:1'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>tablename_fsm<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>Free Space Map<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>Find where to insert new
+  rows (tracks empty space)<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>INSERT / UPDATE<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>tablename_vm<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>Visibility Map<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>Skip pages that don’t
+  need vacuuming or scanning<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+  mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+  lang=EN-IN style='font-family:Consolas;color:black'>VACUUM / ANALYZE /
+  Index-only scans<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<div class=MsoNormal align=center style='text-align:center;line-height:normal;
+mso-pagination:none;border:none;mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;
+mso-border-shadow:yes'><span lang=EN-IN style='font-family:Consolas;color:black'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:none;border:none;
+mso-padding-alt:31.0pt 31.0pt 31.0pt 31.0pt;mso-border-shadow:yes'><span
+lang=EN-IN style='font-family:Consolas;color:black'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
